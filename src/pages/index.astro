@@ -8,64 +8,98 @@ const description = 'OS爱好者的记录';
 <Layout title={title}>
 	<main>
 		<div class="hero">
+			<div class="avatar">L</div>
 			<h1>{title}</h1>
 			<p class="subtitle">{description}</p>
+			<p class="intro">记录学习 xv6、CS144、系统编程的过程</p>
 		</div>
 		
-		<section class="intro">
-			<h2>关于</h2>
-			<p>记录学习xv6、CS144、系统编程的过程</p>
-		</section>
-
-		<section class="posts">
-			<h2>最近文章</h2>
-			<a href="/posts" class="view-all">查看所有文章 →</a>
+		<section class="links">
+			<a href="/posts" class="link-card">
+				<span class="icon">📝</span>
+				<span>文章列表</span>
+			</a>
+			<a href="https://github.com" class="link-card" target="_blank">
+				<span class="icon">💻</span>
+				<span>GitHub</span>
+			</a>
 		</section>
 	</main>
 </Layout>
 
 <style>
 	main {
-		max-width: 800px;
+		max-width: 700px;
 		margin: 0 auto;
-		padding: 2rem;
+		padding: 3rem 2rem;
+		min-height: 100vh;
 	}
 
 	.hero {
 		text-align: center;
-		padding: 3rem 0;
-		border-bottom: 1px solid #eee;
+		padding: 2rem 0 3rem;
+	}
+
+	.avatar {
+		width: 80px;
+		height: 80px;
+		margin: 0 auto 1.5rem;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2rem;
+		font-weight: bold;
+		color: white;
 	}
 
 	h1 {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		margin: 0;
-		color: #333;
+		color: #f1f5f9;
+		font-weight: 700;
 	}
 
 	.subtitle {
 		font-size: 1.2rem;
-		color: #666;
-		margin-top: 0.5rem;
+		color: #94a3b8;
+		margin: 0.5rem 0;
 	}
 
-	.intro, .posts {
-		margin-top: 3rem;
+	.intro {
+		color: #64748b;
+		margin-top: 1rem;
+		font-size: 0.95rem;
 	}
 
-	h2 {
-		font-size: 1.8rem;
-		color: #333;
-		margin-bottom: 1rem;
+	.links {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
+		margin-top: 2rem;
 	}
 
-	.view-all {
-		color: #2563eb;
+	.link-card {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1.5rem;
+		background: #1e293b;
+		border: 1px solid #334155;
+		border-radius: 12px;
 		text-decoration: none;
-		font-size: 1.1rem;
+		color: #f1f5f9;
+		transition: all 0.3s;
 	}
 
-	.view-all:hover {
-		text-decoration: underline;
+	.link-card:hover {
+		background: #334155;
+		border-color: #475569;
+		transform: translateY(-2px);
+	}
+
+	.icon {
+		font-size: 1.5rem;
 	}
 </style>

@@ -1,0 +1,86 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="navbar">
+	<div class="nav-content">
+		<a href="/" class="logo">lyp</a>
+		<div class="nav-links">
+			<a href="/" class={currentPath === '/' ? 'active' : ''}>主页</a>
+			<a href="/posts" class={currentPath.startsWith('/posts') ? 'active' : ''}>文章</a>
+		</div>
+	</div>
+</nav>
+
+<style>
+	.navbar {
+		background: #1e293b;
+		border-bottom: 1px solid #334155;
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		backdrop-filter: blur(10px);
+	}
+
+	.nav-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 1rem 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.logo {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #f1f5f9;
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+
+	.logo:hover {
+		color: #60a5fa;
+	}
+
+	.nav-links {
+		display: flex;
+		gap: 2rem;
+	}
+
+	.nav-links a {
+		color: #94a3b8;
+		text-decoration: none;
+		font-size: 1rem;
+		transition: color 0.2s;
+		position: relative;
+	}
+
+	.nav-links a:hover {
+		color: #f1f5f9;
+	}
+
+	.nav-links a.active {
+		color: #60a5fa;
+	}
+
+	.nav-links a.active::after {
+		content: '';
+		position: absolute;
+		bottom: -0.5rem;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: #60a5fa;
+	}
+
+	@media (max-width: 768px) {
+		.nav-content {
+			padding: 1rem;
+		}
+
+		.nav-links {
+			gap: 1rem;
+		}
+	}
+</style>

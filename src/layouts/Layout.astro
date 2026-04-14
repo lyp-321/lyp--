@@ -1,4 +1,6 @@
 ---
+import Nav from '../components/Nav.astro';
+
 interface Props {
 	title?: string;
 }
@@ -16,6 +18,7 @@ const { title = 'lyp - OS爱好者的记录' } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Nav />
 		<slot />
 	</body>
 </html>
@@ -35,6 +38,15 @@ const { title = 'lyp - OS爱好者的记录' } = Astro.props;
 	}
 
 	body {
-		background: #fafafa;
+		background: #0f172a;
+	}
+
+	a {
+		color: #60a5fa;
+		transition: color 0.2s;
+	}
+
+	a:hover {
+		color: #93c5fd;
 	}
 </style>
