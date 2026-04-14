@@ -1,11 +1,61 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = 'lyp';
+const description = 'OS爱好者的记录';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={title}>
+	<main>
+		<div class="hero">
+			<h1>{title}</h1>
+			<p class="subtitle">{description}</p>
+		</div>
+		
+		<section class="intro">
+			<h2>关于</h2>
+			<p>记录学习xv6、CS144、系统编程的过程</p>
+		</section>
+
+		<section class="posts">
+			<h2>最近文章</h2>
+			<p>博客文章即将上线...</p>
+		</section>
+	</main>
 </Layout>
+
+<style>
+	main {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	.hero {
+		text-align: center;
+		padding: 3rem 0;
+		border-bottom: 1px solid #eee;
+	}
+
+	h1 {
+		font-size: 3rem;
+		margin: 0;
+		color: #333;
+	}
+
+	.subtitle {
+		font-size: 1.2rem;
+		color: #666;
+		margin-top: 0.5rem;
+	}
+
+	.intro, .posts {
+		margin-top: 3rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+		color: #333;
+		margin-bottom: 1rem;
+	}
+</style>
