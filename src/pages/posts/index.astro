@@ -12,7 +12,7 @@ const sortedPosts = posts.sort((a, b) => b.data.date.getTime() - a.data.date.get
 		<div class="posts-list">
 			{sortedPosts.map((post) => (
 				<article class="post-card">
-					<a href={`/posts/${post.slug}`}>
+					<a href={`/posts/${post.id}`}>
 						<h2>{post.data.title}</h2>
 						<p class="description">{post.data.description}</p>
 						<time>{post.data.date.toLocaleDateString('zh-CN')}</time>
