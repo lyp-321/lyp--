@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts');
+const sortedPosts = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Layout title="文章列表 - lyp">
+	<main>
+		<h1>文章列表</h1>
+		<div class="posts-list">
+			{sortedPosts.map((post) => (
+				<article class="post-card">
+					<a href={`/posts/${post.slug}`}>
+						<h2>{post.data.title}</h2>
+						<p class="description">{post.data.description}</p>
+						<time>{post.data.date.toLocaleDateString('zh-CN')}</time>
+						{post.data.tags && (
+							<div class="tags">
+								{post.data.tags.map((tag) => (
+									<span class="tag">{tag}</span>
+								))}
+							</div>
+						)}
+					</a>
+				</article>
+			))}
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 2rem;
+		color: #333;
+	}
+
+	.posts-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.post-card {
+		padding: 1.5rem;
+		background: white;
+		border-radius: 8px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		transition: transform 0.2s;
+	}
+
+	.post-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+	}
+
+	.post-card a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.post-card h2 {
+		font-size: 1.5rem;
+		margin: 0 0 0.5rem 0;
+		color: #2563eb;
+	}
+
+	.description {
+		color: #666;
+		margin: 0.5rem 0;
+	}
+
+	time {
+		font-size: 0.9rem;
+		color: #999;
+	}
+
+	.tags {
+		display: flex;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+	}
+
+	.tag {
+		font-size: 0.85rem;
+		padding: 0.25rem 0.75rem;
+		background: #e5e7eb;
+		border-radius: 4px;
+		color: #4b5563;
+	}
+</style>
