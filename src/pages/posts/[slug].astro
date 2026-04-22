@@ -131,14 +131,15 @@ const { Content } = await render(post);
 	}
 
 	.content :global(a) {
-		color: #60a5fa;
+		color: #e5e5e5;
 		text-decoration: none;
-		border-bottom: 1px solid transparent;
-		transition: border-color 0.2s;
+		border-bottom: 1px solid #666666;
+		transition: all 0.2s;
 	}
 
 	.content :global(a:hover) {
-		border-bottom-color: #60a5fa;
+		color: #ffffff;
+		border-bottom-color: #999999;
 	}
 
 	.content :global(code) {
@@ -147,7 +148,7 @@ const { Content } = await render(post);
 		border-radius: 4px;
 		font-family: 'Fira Code', 'Courier New', monospace;
 		font-size: 0.9em;
-		color: #e879f9;
+		color: #cccccc;
 		border: 1px solid #334155;
 	}
 
